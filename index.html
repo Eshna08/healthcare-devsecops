@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthCare Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        header {
+            background: #087e8b;
+            color: white;
+            padding: 22px 35px;
+        }
+
+        header h1 {
+            font-size: 26px;
+        }
+
+        header p {
+            margin-top: 6px;
+            opacity: 0.9;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #00000010;
+        }
+
+        .card h3 {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .card h2 {
+            color: #087e8b;
+            font-size: 32px;
+            margin-top: 12px;
+        }
+
+        .section {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            margin-bottom: 22px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .status {
+            color: #15803d;
+            background: #dcfce7;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        button {
+            background: #087e8b;
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #065f68;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+
+        @media(max-width: 600px) {
+            main {
+                padding: 15px;
+            }
+
+            .section {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HealthCare Management Dashboard</h1>
+    <p>Patient and Appointment Monitoring System</p>
+</header>
+
+<main>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Total Patients</h3>
+            <h2 id="patients">250</h2>
+        </div>
+
+        <div class="card">
+            <h3>Appointments Today</h3>
+            <h2 id="appointments">48</h2>
+        </div>
+
+        <div class="card">
+            <h3>Available Doctors</h3>
+            <h2>12</h2>
+        </div>
+
+        <div class="card">
+            <h3>Available Beds</h3>
+            <h2>35</h2>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Patient Records</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>P101</td>
+                    <td>John Smith</td>
+                    <td>Cardiology</td>
+                    <td><span class="status">Stable</span></td>
+                </tr>
+
+                <tr>
+                    <td>P102</td>
+                    <td>Sarah Wilson</td>
+                    <td>Neurology</td>
+                    <td><span class="status">Stable</span></td>
+                </tr>
+
+                <tr>
+                    <td>P103</td>
+                    <td>David Brown</td>
+                    <td>General Medicine</td>
+                    <td><span class="status">Stable</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="addPatient()">Add Patient</button>
+    </div>
+
+    <div class="section">
+        <h2>System Information</h2>
+        <p style="margin-top:12px">
+            Dashboard Status:
+            <span class="status">Operational</span>
+        </p>
+        <p style="margin-top:12px">
+            Environment: Docker Container
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    Healthcare Dashboard | DevSecOps Experiment 3
+</footer>
+
+<script>
+    let patientCount = 250;
+
+    function addPatient() {
+        patientCount++;
+        document.getElementById("patients").textContent = patientCount;
+        alert("Demo patient added successfully!");
+    }
+</script>
+
+</body>
+</html>
